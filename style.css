@@ -16,18 +16,6 @@ body {
   background-color: #000; /* Fallback for no video support */
 }
 
-/* Define Colors */
-:root {
-  --primary-bg-color: rgba(0, 0, 0, 0.5); /* More transparent to let video show through */
-  --highlight-color: #ff416c;
-  --hover-lift: translateY(-5px) scale(1.05);
-  --hover-box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-  --button-hover-lift: translateY(-5px) scale(1.1);
-  --gradient-main: linear-gradient(45deg, rgba(255, 65, 108, 0.8), rgba(255, 75, 43, 0.8)); /* Gradient with transparency */
-  --gradient-hover: linear-gradient(45deg, rgba(255, 75, 43, 0.8), rgba(255, 65, 108, 0.8)); /* Transparent hover effect */
-  --gradient-overlay: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)); /* Slightly transparent gradient for overlay */
-}
-
 /* Background Video */
 #background-video {
   position: fixed;
@@ -45,7 +33,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent to show video */
+  background: rgba(0, 0, 0, 0.5); /* More transparent to allow video */
   padding: 10px 0;
   z-index: 10;
   display: flex;
@@ -69,14 +57,14 @@ body {
   background: white;
   color: black;
   border-radius: 5px;
-  transform: var(--hover-lift);
+  transform: translateY(-5px); /* Lift-up effect */
 }
 
 /* Main Content */
 .content {
   margin-top: 100px;
   text-align: center;
-  background: var(--primary-bg-color); /* Semi-transparent background to keep video visible */
+  background: rgba(0, 0, 0, 0.5); /* Transparent background to let video show through */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
@@ -125,11 +113,10 @@ body {
 
 /* Projects Section */
 .projects {
-  background: var(--primary-bg-color); /* Semi-transparent to allow background video through */
+  background: rgba(0, 0, 0, 0.4); /* More transparent for video to show through */
   color: white;
   padding: 50px 10px;
   text-align: center;
-  background: var(--gradient-main); /* Gradients for section, but still transparent */
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
@@ -158,8 +145,8 @@ body {
 }
 
 .project-card:hover {
-  transform: var(--hover-lift);
-  box-shadow: var(--hover-box-shadow);
+  transform: translateY(-5px) scale(1.05); /* Lift-up and zoom effect */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 .project-overlay {
@@ -168,14 +155,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--gradient-overlay); /* Transparent gradient */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
 
 .project-card:hover .project-overlay {
@@ -194,7 +181,7 @@ body {
 }
 
 .project-btn {
-  background: var(--gradient-main);
+  background: linear-gradient(45deg, rgba(255, 65, 108, 0.8), rgba(255, 75, 43, 0.8)); /* Transparent gradient */
   color: white;
   text-decoration: none;
   padding: 10px 20px;
@@ -204,15 +191,15 @@ body {
 }
 
 .project-btn:hover {
-  background: var(--gradient-hover);
-  transform: var(--button-hover-lift);
+  background: linear-gradient(45deg, rgba(255, 75, 43, 0.8), rgba(255, 65, 108, 0.8)); /* Hover effect */
+  transform: translateY(-5px) scale(1.1);
 }
 
 /* Footer */
 .footer {
   text-align: center;
   padding: 20px;
-  background: var(--primary-bg-color);
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent to allow video */
 }
 
 .footer-links a {
@@ -258,7 +245,7 @@ body {
 }
 
 .mute-btn:hover {
-  transform: var(--button-hover-lift);
+  transform: translateY(-5px) scale(1.1); /* Lift-up effect */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
@@ -277,10 +264,10 @@ body {
   z-index: 100;
   display: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s ease-in-out;
 }
 
 #scroll-to-top:hover {
-  transform: translateY(-5px) scale(1.2);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px) scale(1.2); /* Lift-up effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
