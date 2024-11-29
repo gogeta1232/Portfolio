@@ -16,6 +16,18 @@ body {
   background-color: #000; /* Fallback for no video support */
 }
 
+/* Define Colors */
+:root {
+  --primary-bg-color: rgba(0, 0, 0, 0.5); /* More transparent to let video show through */
+  --highlight-color: #ff416c;
+  --hover-lift: translateY(-5px) scale(1.05);
+  --hover-box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  --button-hover-lift: translateY(-5px) scale(1.1);
+  --gradient-main: linear-gradient(45deg, rgba(255, 65, 108, 0.8), rgba(255, 75, 43, 0.8)); /* Gradient with transparency */
+  --gradient-hover: linear-gradient(45deg, rgba(255, 75, 43, 0.8), rgba(255, 65, 108, 0.8)); /* Transparent hover effect */
+  --gradient-overlay: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)); /* Slightly transparent gradient for overlay */
+}
+
 /* Background Video */
 #background-video {
   position: fixed;
@@ -25,7 +37,7 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  filter: brightness(0.7);
+  filter: brightness(0.7); /* To enhance visibility of text and elements */
 }
 
 /* Navigation Bar */
@@ -33,7 +45,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent to show video */
   padding: 10px 0;
   z-index: 10;
   display: flex;
@@ -50,21 +62,21 @@ body {
   text-decoration: none;
   color: white;
   padding: 5px 10px;
-  transition: background 0.3s, color 0.3s ease-in-out, transform 0.3s ease;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .navbar a:hover {
   background: white;
   color: black;
   border-radius: 5px;
-  transform: translateY(-5px); /* Lift-up effect */
+  transform: var(--hover-lift);
 }
 
 /* Main Content */
 .content {
   margin-top: 100px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--primary-bg-color); /* Semi-transparent background to keep video visible */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
@@ -88,12 +100,11 @@ body {
   font-size: 1.8rem;
   margin: 0 15px;
   color: white;
-  transition: transform 0.3s ease, color 0.3s ease-in-out, transform 0.3s ease;
-  position: relative;
+  transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
 }
 
 .social-icons a:hover {
-  transform: translateY(-5px) scale(1.3); /* Lift-up and zoom effect */
+  transform: translateY(-5px) scale(1.3);
   text-shadow: 0 0 20px white, 0 0 30px currentColor;
 }
 
@@ -112,22 +123,15 @@ body {
   color: transparent; /* Instagram gradient */
 }
 
-/* Footer-specific styles */
-.footer .social-icons a {
-  margin: 0 20px;
-}
-
-.footer .social-icons a:hover {
-  transform: translateY(-5px); /* Lift-up effect for footer icons */
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px currentColor;
-}
-
 /* Projects Section */
 .projects {
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--primary-bg-color); /* Semi-transparent to allow background video through */
   color: white;
   padding: 50px 10px;
   text-align: center;
+  background: var(--gradient-main); /* Gradients for section, but still transparent */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .project-gallery {
@@ -141,7 +145,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -154,8 +158,8 @@ body {
 }
 
 .project-card:hover {
-  transform: translateY(-5px) scale(1.05); /* Lift-up and zoom effect */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  transform: var(--hover-lift);
+  box-shadow: var(--hover-box-shadow);
 }
 
 .project-overlay {
@@ -164,14 +168,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--gradient-overlay); /* Transparent gradient */
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s;
 }
 
 .project-card:hover .project-overlay {
@@ -190,25 +194,25 @@ body {
 }
 
 .project-btn {
-  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  background: var(--gradient-main);
   color: white;
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1rem;
-  transition: background 0.3s ease, transform 0.3s ease-in-out;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .project-btn:hover {
-  background: linear-gradient(45deg, #ff4b2b, #ff416c);
-  transform: translateY(-5px) scale(1.1); /* Lift-up and zoom effect */
+  background: var(--gradient-hover);
+  transform: var(--button-hover-lift);
 }
 
 /* Footer */
 .footer {
   text-align: center;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--primary-bg-color);
 }
 
 .footer-links a {
@@ -218,7 +222,7 @@ body {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  transition: transform 0.3s, color 0.3s ease-in-out;
+  transition: transform 0.3s;
 }
 
 .footer-links a:hover {
@@ -250,11 +254,11 @@ body {
   cursor: pointer;
   font-size: 1.5rem;
   z-index: 20;
-  transition: transform 0.2s ease, box-shadow 0.3s ease-in-out;
+  transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .mute-btn:hover {
-  transform: translateY(-5px) scale(1.1); /* Lift-up effect for button */
+  transform: var(--button-hover-lift);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
@@ -273,10 +277,10 @@ body {
   z-index: 100;
   display: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #scroll-to-top:hover {
-  transform: translateY(-5px) scale(1.2); /* Lift-up effect */
+  transform: translateY(-5px) scale(1.2);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
