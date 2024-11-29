@@ -32,13 +32,21 @@
     </video>
 
     <!-- Mute/Unmute Button -->
-    <button class="mute-btn" id="mute-btn" aria-label="Mute or Unmute Video"><i class="fas fa-volume-mute"></i></button>
+    <button class="mute-btn" id="mute-btn" aria-label="Mute or Unmute Video">
+        <i class="fas fa-volume-mute"></i>
+    </button>
 
     <!-- Main Content -->
     <div id="about" class="content" data-aos="fade-up">
         <img src="https://api.lanyard.rest/1214142384544161793.png" alt="Profile picture of coolvegetable" class="profile-pic" loading="lazy">
         <h1>coolvegetable</h1>
         <p>17-year-old fella who likes to edit, learn coding, and sometimes write—just figuring things out and having fun along the way.</p>
+        
+        <!-- Profile View Count -->
+        <div class="view-count">
+            <span id="view-count">0</span> views
+        </div>
+
         <div class="social-icons">
             <a href="https://open.spotify.com/user/31g2vxeqgtweklvogdypc5dlmx2y" class="spotify" target="_blank" aria-label="Spotify Profile">
                 <i class="fab fa-spotify"></i>
@@ -103,15 +111,18 @@
     </footer>
 
     <!-- Scroll-to-Top Button -->
-    <button id="scroll-to-top" aria-label="Scroll to Top"><i class="fas fa-chevron-up"></i></button>
+    <button id="scroll-to-top" aria-label="Scroll to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-    <!-- Link to External JS -->
+    <!-- Scripts -->
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
-        // Scroll to Top
+
+        // Scroll to Top Button Functionality
         const scrollToTop = document.getElementById('scroll-to-top');
         window.addEventListener('scroll', () => {
             scrollToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -119,6 +130,11 @@
         scrollToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Simulating View Count Increment
+        let viewCount = parseInt(document.getElementById("view-count").textContent);
+        viewCount += 1;  // Increment by 1 for each visit (adjust as needed)
+        document.getElementById("view-count").textContent = viewCount;
     </script>
 </body>
 </html>
