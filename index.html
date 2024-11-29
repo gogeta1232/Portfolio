@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Profile page of coolvegetable, a 17-year-old who loves editing, coding, and writing.">
     <title>Profile Page</title>
-    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -29,76 +32,93 @@
     </video>
 
     <!-- Mute/Unmute Button -->
-    <button class="mute-btn" id="mute-btn"><i class="fas fa-volume-mute"></i></button>
+    <button class="mute-btn" id="mute-btn" aria-label="Mute or Unmute Video"><i class="fas fa-volume-mute"></i></button>
 
     <!-- Main Content -->
-    <div id="about" class="content">
-        <img src="https://api.lanyard.rest/1214142384544161793.png" alt="Profile" class="profile-pic" loading="lazy">
+    <div id="about" class="content" data-aos="fade-up">
+        <img src="https://api.lanyard.rest/1214142384544161793.png" alt="Profile picture of coolvegetable" class="profile-pic" loading="lazy">
         <h1>coolvegetable</h1>
         <p>17-year-old fella who likes to edit, learn coding, and sometimes write—just figuring things out and having fun along the way.</p>
         <div class="social-icons">
-            <a href="https://open.spotify.com/user/31g2vxeqgtweklvogdypc5dlmx2y" class="spotify" target="_blank" title="Spotify">
+            <a href="https://open.spotify.com/user/31g2vxeqgtweklvogdypc5dlmx2y" class="spotify" target="_blank" aria-label="Spotify Profile">
                 <i class="fab fa-spotify"></i>
             </a>
-            <a href="https://discord.gg/uRhGX4hK84" class="discord" target="_blank" title="Discord">
+            <a href="https://discord.gg/uRhGX4hK84" class="discord" target="_blank" aria-label="Discord Invite">
                 <i class="fab fa-discord"></i>
             </a>
-            <a href="https://www.instagram.com/lakshya.ae1" class="instagram" target="_blank" title="Instagram">
+            <a href="https://www.instagram.com/lakshya.ae1" class="instagram" target="_blank" aria-label="Instagram Profile">
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
     </div>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <h2>My Projects</h2>
-      <div class="project-gallery">
-        <div class="project-card">
-          <img src="b1e915111567223.Y3JvcCw3MzMsNTczLDQzMSw3Mg.jpg" alt="Editing Project">
-          <div class="project-overlay">
-            <h3>Editing Project</h3>
-            <p>A mind-blowing edit with cinematic transitions and cool effects!</p>
-            <a href="https://www.instagram.com/reel/C_iz6LJMi5m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="project-btn">Watch</a>
-          </div>
+    <section id="projects" class="projects" data-aos="fade-up">
+        <h2>My Projects</h2>
+        <div class="project-gallery">
+            <!-- Project Card 1 -->
+            <div class="project-card" data-aos="fade-right">
+                <img src="b1e915111567223.Y3JvcCw3MzMsNTczLDQzMSw3Mg.jpg" alt="Editing Project" loading="lazy">
+                <div class="project-overlay">
+                    <h3>Editing Project</h3>
+                    <p>A mind-blowing edit with cinematic transitions and cool effects!</p>
+                    <a href="https://www.instagram.com/reel/C_iz6LJMi5m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="project-btn">Watch</a>
+                </div>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="project-card" data-aos="fade-left">
+                <img src="baf85e65-343f-43ef-af0d-ed063173f93a.jpeg" alt="Coding Project" loading="lazy">
+                <div class="project-overlay">
+                    <h3>Coding Project</h3>
+                    <p>A fully responsive website with interactive features and animations.</p>
+                    <a href="https://vegetable2.vercel.app/" target="_blank" class="project-btn">View Code</a>
+                </div>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="project-card" data-aos="fade-right">
+                <img src="Leonardo_Phoenix_A_hardcover_book_design_for_a_novel_blending_1 (1).jpg" alt="Writing Project" loading="lazy">
+                <div class="project-overlay">
+                    <h3>Writing Project</h3>
+                    <p>An engaging short story filled with humor and relatable characters.</p>
+                    <a href="https://www.wattpad.com/story/385470885-a-heartbeat-away" target="_blank" class="project-btn">Read More</a>
+                </div>
+            </div>
         </div>
-        <div class="project-card">
-          <img src="baf85e65-343f-43ef-af0d-ed063173f93a.jpeg" alt="Coding Project">
-          <div class="project-overlay">
-            <h3>Coding Project</h3>
-            <p>A fully responsive website with interactive features and animations.</p>
-            <a href="https://vegetable2.vercel.app/" target="_blank" class="project-btn">View Code</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <img src="Leonardo_Phoenix_A_hardcover_book_design_for_a_novel_blending_1 (1).jpg" alt="Writing Project">
-          <div class="project-overlay">
-            <h3>Writing Project</h3>
-            <p>An engaging short story filled with humor and relatable characters.</p>
-            <a href="https://www.wattpad.com/story/385470885-a-heartbeat-away" target="_blank" class="project-btn">Read More</a>
-          </div>
-        </div>
-      </div>
     </section>
-    
 
     <!-- Footer -->
-    <footer id="contact" class="footer">
-      <p>&copy; 2024 coolvegetable | Made with ❤️</p>
-      <div class="footer-links">
-          <a href="https://github.com/your-profile" target="_blank" class="github" title="GitHub">
-              <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="https://youtube.com/your-channel" target="_blank" class="youtube" title="YouTube">
-              <i class="fab fa-youtube"></i> YouTube
-          </a>
-          <a href="mailto:your-email@example.com" target="_blank" class="email" title="Email Me">
-              <i class="fas fa-envelope"></i> Contact
-          </a>
-      </div>
-  </footer>
-  
+    <footer id="contact" class="footer" data-aos="fade-up">
+        <p>&copy; 2024 coolvegetable | Made with ❤️</p>
+        <div class="footer-links">
+            <a href="https://github.com/your-profile" target="_blank" class="github" aria-label="GitHub Profile">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://youtube.com/your-channel" target="_blank" class="youtube" aria-label="YouTube Channel">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+            <a href="mailto:your-email@example.com" target="_blank" class="email" aria-label="Email Me">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" aria-label="Scroll to Top"><i class="fas fa-chevron-up"></i></button>
 
     <!-- Link to External JS -->
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+        // Scroll to Top
+        const scrollToTop = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            scrollToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
