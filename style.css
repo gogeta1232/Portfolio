@@ -301,3 +301,70 @@ body {
   transform: translateY(-5px); /* Lift-up effect on hover */
   transition: transform 0.3s ease, background 0.3s ease;
 }
+
+.music-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.music-btn:hover {
+  transform: scale(1.2);
+  background: white;
+  color: black;
+}
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#corner-clock {
+  position: fixed;
+  top: 20px; /* Position at the top */
+  left: 20px; /* Align to the left */
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem; /* Smaller font size */
+  font-weight: bold;
+  padding: 8px 16px; /* Smaller padding */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  z-index: 9999;
+  cursor: default;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+}
+
+#corner-clock:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  background: linear-gradient(135deg, #2575fc, #6a11cb); /* Gradient direction change */
+}
+
+/* Optional: Glow Animation */
+@keyframes glowing {
+  0% {
+      box-shadow: 0 0 5px #6a11cb;
+  }
+  50% {
+      box-shadow: 0 0 15px #2575fc;
+  }
+  100% {
+      box-shadow: 0 0 5px #6a11cb;
+  }
+}
+
+#corner-clock {
+  animation: glowing 2s infinite;
+}
