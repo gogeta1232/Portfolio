@@ -12,9 +12,11 @@ muteBtn.addEventListener('click', () => {
     }
 });
 
-// Profile View Count Functionality
-window.addEventListener('DOMContentLoaded', (event) => {
-    let viewCount = parseInt(document.getElementById("view-count").textContent);
-    viewCount += 1;  // Increment by 1 for each visit (adjust as needed)
-    document.getElementById("view-count").textContent = viewCount;
+// Typed.js Initialization
+const typed = new Typed('#typed-text', {
+    strings: ['17-year-old fella who likes editing.', 'Learning coding.', 'Sometimes writes stories.'],
+    typeSpeed: 50,
+    backSpeed: 25,
+    loop: true
 });
+
