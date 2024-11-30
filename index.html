@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Profile page of coolvegetable, a 17-year-old who loves editing, coding, and writing.">
     <title>Profile Page</title>
+
+    <!-- External Resources -->
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- AOS Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <ul>
@@ -36,17 +35,24 @@
         <i class="fas fa-volume-mute"></i>
     </button>
 
+    <!-- Corner Clock -->
+    <div id="corner-clock">
+        <span id="corner-hours">00</span>:<span id="corner-minutes">00</span>:<span id="corner-seconds">00</span>
+        <span id="corner-ampm">AM</span>
+    </div>
+
     <!-- Main Content -->
     <div id="about" class="content" data-aos="fade-up">
         <img src="https://api.lanyard.rest/1214142384544161793.png" alt="Profile picture of coolvegetable" class="profile-pic" loading="lazy">
         <h1>coolvegetable</h1>
         <p>17-year-old fella who likes to edit, learn coding, and sometimes write—just figuring things out and having fun along the way.</p>
-        
+
         <!-- Profile View Count -->
         <div class="view-count">
             <span id="view-count">0</span> views
         </div>
 
+        <!-- Social Icons -->
         <div class="social-icons">
             <a href="https://open.spotify.com/user/31g2vxeqgtweklvogdypc5dlmx2y" class="spotify" target="_blank" aria-label="Spotify Profile">
                 <i class="fab fa-spotify"></i>
@@ -73,6 +79,7 @@
                     <a href="https://www.instagram.com/reel/C_iz6LJMi5m/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="project-btn">Watch</a>
                 </div>
             </div>
+
             <!-- Project Card 2 -->
             <div class="project-card" data-aos="fade-left">
                 <img src="baf85e65-343f-43ef-af0d-ed063173f93a.jpeg" alt="Coding Project" loading="lazy">
@@ -82,6 +89,7 @@
                     <a href="https://vegetable2.vercel.app/" target="_blank" class="project-btn">View Code</a>
                 </div>
             </div>
+
             <!-- Project Card 3 -->
             <div class="project-card" data-aos="fade-right">
                 <img src="Leonardo_Phoenix_A_hardcover_book_design_for_a_novel_blending_1 (1).jpg" alt="Writing Project" loading="lazy">
@@ -116,11 +124,23 @@
     </button>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        AOS.init();
+        // Clock Update Function
+        function updateClock() {
+            const clockElement = document.getElementById("corner-clock");
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12; // Convert to 12-hour format
+            const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+            clockElement.textContent = timeString;
+        }
+    
+        // Initialize the clock and update it every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Call once immediately to avoid delay
 
         // Scroll to Top Button Functionality
         const scrollToTop = document.getElementById('scroll-to-top');
@@ -131,10 +151,19 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Simulating View Count Increment
+        // Simulate View Count Increment
         let viewCount = parseInt(document.getElementById("view-count").textContent);
         viewCount += 1;  // Increment by 1 for each visit (adjust as needed)
         document.getElementById("view-count").textContent = viewCount;
     </script>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init();
+    </script>
+
 </body>
 </html>
