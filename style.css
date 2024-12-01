@@ -199,9 +199,12 @@ body {
 /* Footer */
 .footer {
   text-align: center;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent to allow video */
+  padding: 1.25rem; /* Relative padding for consistency */
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff; /* Ensures readability */
 }
+
+
 
 .footer-links a {
   color: white;
