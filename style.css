@@ -114,40 +114,53 @@ body {
 
 /* Projects Section */
 .projects {
-  background: rgba(0, 0, 0, 0.4); /* More transparent for video to show through */
+  background: rgba(0, 0, 0, 0.6); /* More opacity for a subtle background */
   color: white;
-  padding: 50px 10px;
+  padding: 60px 15px; /* Increased padding for better spacing */
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2); /* Soft shadow for depth */
+}
+
+.projects h2 {
+  font-size: 2.5rem; /* Larger heading for better emphasis */
+  margin-bottom: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Better grid flexibility */
+  gap: 30px;
   padding: 20px;
+  justify-items: center; /* Centers cards in the grid */
 }
 
 .project-card {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s ease, filter 0.3s ease;
   background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for each card */
 }
 
 .project-card img {
   width: 100%;
-  height: 200px;
+  height: 230px;
   object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 15px;
+  transition: transform 0.3s ease; /* Smooth image transition */
 }
 
 .project-card:hover {
-  transform: translateY(-5px) scale(1.05); /* Lift-up and zoom effect */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  transform: translateY(-8px) scale(1.05); /* Slightly stronger lift-up effect */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* More intense shadow on hover */
+}
+
+.project-card:hover img {
+  transform: scale(1.1); /* Image zoom effect on hover */
 }
 
 .project-overlay {
@@ -156,7 +169,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay for better contrast */
   color: white;
   display: flex;
   flex-direction: column;
@@ -164,37 +177,62 @@ body {
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  border-radius: 15px;
 }
 
 .project-card:hover .project-overlay {
-  opacity: 1;
+  opacity: 1; /* Reveal overlay on hover */
 }
 
 .project-overlay h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.75rem; /* Slightly larger heading */
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .project-overlay p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 20px;
-  padding: 0 10px;
+  padding: 0 15px;
+  line-height: 1.4;
 }
 
 .project-btn {
-  background: linear-gradient(45deg, rgba(255, 65, 108, 0.8), rgba(255, 75, 43, 0.8)); /* Transparent gradient */
+  background: linear-gradient(45deg, rgba(255, 65, 108, 0.9), rgba(255, 75, 43, 0.9)); /* Stronger gradient */
   color: white;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border-radius: 5px;
-  font-size: 1rem;
-  transition: background 0.3s, transform 0.3s;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  margin-top: 15px;
 }
 
 .project-btn:hover {
-  background: linear-gradient(45deg, rgba(255, 75, 43, 0.8), rgba(255, 65, 108, 0.8)); /* Hover effect */
-  transform: translateY(-5px) scale(1.1);
+  background: linear-gradient(45deg, rgba(255, 75, 43, 0.9), rgba(255, 65, 108, 0.9)); /* Hover gradient */
+  transform: translateY(-3px) scale(1.05); /* Slight scale and lift-up effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Hover shadow */
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projects {
+    padding: 40px 10px; /* Adjusted padding for smaller screens */
+  }
+
+  .project-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Smaller cards on mobile */
+    gap: 20px;
+  }
+
+  .project-btn {
+    font-size: 1rem; /* Slightly smaller button on mobile */
+    padding: 10px 20px;
+  }
+}
+
 
 /* Footer Styles */
 .footer {
