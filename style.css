@@ -418,7 +418,7 @@ body {
 .discord-status {
   position: absolute;
   top: 20%; /* Adjust for vertical positioning */
-  left: 88%; /* Adjust for horizontal positioning */
+  left: 92%; /* Adjust for horizontal positioning */
   transform: translate(-50%, -50%); /* Center the box */
   display: flex;
   align-items: center;
