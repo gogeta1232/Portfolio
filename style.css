@@ -422,7 +422,7 @@ body {
 /* Discord Status Box */
 .discord-status {
   position: absolute;
-  top: 223%; /* Keep the same vertical position */
+  top: 23%; /* Keep the same vertical position */
   left: 92%; /* Keep the same horizontal position */
   transform: translate(-50%, -50%); /* Center the box */
   display: flex;
