@@ -81,7 +81,7 @@ body {
   height: 150px;
   object-fit: cover;
   margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(201, 174, 174, 0.4);
 }
 
 /* Social Icons */
@@ -196,40 +196,76 @@ body {
   transform: translateY(-5px) scale(1.1);
 }
 
-/* Footer */
+/* Footer Styles */
 .footer {
   text-align: center;
-  padding: 1.25rem; /* Relative padding for consistency */
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff; /* Ensures readability */
+  padding: 1.5rem; /* Increased padding for better spacing */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(34, 34, 34, 0.8)); /* Subtle gradient */
+  color: #f9f9f9; /* Softer white for better contrast */
+  font-size: 1rem; /* Standardized font size */
 }
 
+.footer p {
+  margin: 0; /* Remove default margin for better spacing */
+  font-size: 0.9rem;
+}
 
+/* Footer Links */
+.footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Evenly spaced links */
+}
 
 .footer-links a {
-  color: white;
-  margin: 0 20px;
-  font-size: 1.2rem;
+  color: #f9f9f9; /* Default link color */
+  font-size: 1.1rem;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  transition: transform 0.3s;
+  font-weight: 500;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.footer-links a i {
+  margin-right: 0.5rem; /* Space between icon and text */
+  font-size: 1.2rem;
+}
+
+/* Hover Effects */
 .footer-links a:hover {
-  transform: translateY(-5px); /* Lift-up effect for footer links */
+  transform: translateY(-3px); /* Subtle lift-up effect */
 }
 
+/* Specific Hover Colors */
 .footer-links a.github:hover {
-  color: #333; /* GitHub dark gray */
+  color: #6e5494; /* GitHub purple */
 }
 
-.footer-links a.youtube:hover {
-  color: #FF0000; /* YouTube red */
+.footer-links a.chess:hover {
+  color: #0077b6; /* Chess.com blue */
 }
 
 .footer-links a.email:hover {
-  color: #FFA500; /* Email orange */
+  color: #ffa500; /* Email orange */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .footer-links {
+    flex-direction: column; /* Stack links vertically on smaller screens */
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    font-size: 1rem;
+  }
 }
 
 /* Mute Button */
