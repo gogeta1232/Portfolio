@@ -131,8 +131,8 @@ body {
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Better grid flexibility */
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Wider min size for the cards */
+  gap: 20px; /* Adjusted gap to reduce empty space */
   padding: 20px;
   justify-items: center; /* Centers cards in the grid */
 }
@@ -144,11 +144,12 @@ body {
   transition: transform 0.3s, box-shadow 0.3s ease, filter 0.3s ease;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for each card */
+  height: 300px; /* Set a consistent height */
 }
 
 .project-card img {
   width: 100%;
-  height: 230px;
+  height: 100%;
   object-fit: cover;
   border-radius: 15px;
   transition: transform 0.3s ease; /* Smooth image transition */
@@ -224,7 +225,7 @@ body {
 
   .project-gallery {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Smaller cards on mobile */
-    gap: 20px;
+    gap: 15px; /* Reduced gap for better use of space */
   }
 
   .project-btn {
@@ -232,6 +233,7 @@ body {
     padding: 10px 20px;
   }
 }
+
 
 
 /* Footer Styles */
