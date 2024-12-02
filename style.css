@@ -422,57 +422,124 @@ body {
 /* Discord Status Box */
 .discord-status {
   position: absolute;
-  top: 20%; /* Adjust for vertical positioning */
-  left: 92%; /* Adjust for horizontal positioning */
+  top: 20%; /* Keep the same vertical position */
+  left: 92%; /* Keep the same horizontal position */
   transform: translate(-50%, -50%); /* Center the box */
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, rgba(54, 57, 63, 0.9), rgba(32, 34, 37, 0.9)); /* Gradient */
   color: white;
-  border-radius: 12px; /* Slightly rounded corners */
-  padding: 12px 18px; /* Padding for a better look */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+  border-radius: 15px; /* Slightly more rounded corners for a modern look */
+  padding: 15px 20px; /* Increased padding for better spacing */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
   z-index: 1000;
-  backdrop-filter: blur(10px); /* Adds transparency with a frosted-glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Thin border for better definition */
-  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+  backdrop-filter: blur(12px); /* Improved frosted-glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more pronounced border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animations */
 }
 
 /* Hover Effect */
 .discord-status:hover {
-  transform: translate(-50%, -50%) scale(1.05); /* Slightly enlarge on hover */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); /* Enhance shadow */
+  transform: translate(-50%, -50%) scale(1.08); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); /* Sharper shadow on hover */
 }
 
 /* Discord Avatar Styling */
 #discord-avatar {
-  width: 50px; /* Size of the avatar */
-  height: 50px;
+  width: 60px; /* Slightly larger avatar */
+  height: 60px;
   border-radius: 50%; /* Circular avatar */
-  margin-right: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Avatar shadow */
-  border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border around avatar */
+  margin-right: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  border: 3px solid rgba(255, 255, 255, 0.3); /* Enhanced border for better focus */
+  transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+#discord-avatar:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
 }
 
 /* Discord Info Styling */
 .discord-info {
   display: flex;
   flex-direction: column;
-  font-family: "Arial", sans-serif;
-  line-height: 1.4;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6; /* Improved line height for readability */
 }
 
 #discord-username {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px; /* Larger font for emphasis */
   color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Adds a subtle glow to text */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Enhanced glow effect */
 }
 
 #discord-status {
-  font-size: 12px;
-  color: #b9bbbe; /* Subtle grey for status */
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); /* Subtle glow */
+  font-size: 14px; /* Slightly larger font for clarity */
+  color: #b9bbbe; /* Subtle grey for status text */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); /* Subtle glow effect */
 }
 
+/* Status Badge Styles */
+.status-badge {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 5px 12px;
+  border-radius: 8px; /* More rounded badges */
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
 
+.status-badge.online {
+  background: #43b581;
+}
+
+.status-badge.idle {
+  background: #faa61a;
+}
+
+.status-badge.dnd {
+  background: #f04747;
+}
+
+.status-badge.offline {
+  background: #747f8d;
+}
+
+.status-badge:hover {
+  transform: scale(1.1);
+}
+
+/* Discord Badges */
+.badges-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.badges-container .badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Size of the badge icon */
+  height: 40px;
+  border-radius: 50%; /* Circular badges */
+  background: rgba(255, 255, 255, 0.1); /* Background for the badge */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.badges-container .badge img {
+  width: 24px; /* Size of the icon inside the badge */
+  height: 24px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6)); /* Add subtle shadow to the icon */
+}
+
+.badges-container .badge:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.3);
+}
