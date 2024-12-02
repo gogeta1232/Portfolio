@@ -414,3 +414,60 @@ body {
   }
 }
 
+/* Discord Status Box */
+.discord-status {
+  position: absolute;
+  top: 20%; /* Adjust for vertical positioning */
+  left: 88%; /* Adjust for horizontal positioning */
+  transform: translate(-50%, -50%); /* Center the box */
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(54, 57, 63, 0.9), rgba(32, 34, 37, 0.9)); /* Gradient */
+  color: white;
+  border-radius: 12px; /* Slightly rounded corners */
+  padding: 12px 18px; /* Padding for a better look */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Adds transparency with a frosted-glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Thin border for better definition */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.discord-status:hover {
+  transform: translate(-50%, -50%) scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); /* Enhance shadow */
+}
+
+/* Discord Avatar Styling */
+#discord-avatar {
+  width: 50px; /* Size of the avatar */
+  height: 50px;
+  border-radius: 50%; /* Circular avatar */
+  margin-right: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Avatar shadow */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border around avatar */
+}
+
+/* Discord Info Styling */
+.discord-info {
+  display: flex;
+  flex-direction: column;
+  font-family: "Arial", sans-serif;
+  line-height: 1.4;
+}
+
+#discord-username {
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Adds a subtle glow to text */
+}
+
+#discord-status {
+  font-size: 12px;
+  color: #b9bbbe; /* Subtle grey for status */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); /* Subtle glow */
+}
+
+
