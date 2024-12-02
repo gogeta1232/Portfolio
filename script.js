@@ -1,18 +1,15 @@
-// Video Mute/Unmute Button Functionality
+// **Mute/Unmute Button Functionality**
 const video = document.getElementById('background-video');
 const muteBtn = document.getElementById('mute-btn');
 
+// Toggle mute state and button icon
 muteBtn.addEventListener('click', () => {
-    if (video.muted) {
-        video.muted = false;
-        muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-    } else {
-        video.muted = true;
-        muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-    }
+    const isMuted = video.muted;
+    video.muted = !isMuted;
+    muteBtn.innerHTML = isMuted ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
 });
 
-// Clock Update Function
+// **Clock Update Function**
 function updateClock() {
     const clockElement = document.getElementById("corner-clock");
     const now = new Date();
@@ -21,31 +18,46 @@ function updateClock() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12 || 12; // Convert to 12-hour format
-    clockElement.innerHTML = `<span id="corner-hours">${hours}</span>:<span id="corner-minutes">${minutes}</span>:<span id="corner-seconds">${seconds}</span> <span id="corner-ampm">${ampm}</span>`;
+
+    // Update the clock element with formatted time
+    clockElement.innerHTML = `
+        <span id="corner-hours">${hours}</span>:<span id="corner-minutes">${minutes}</span>:<span id="corner-seconds">${seconds}</span> 
+        <span id="corner-ampm">${ampm}</span>
+    `;
 }
 
-// Initialize the clock and update it every second
+// Initialize clock immediately and update it every second
+updateClock();
 setInterval(updateClock, 1000);
-updateClock(); // Call once immediately to avoid delay
 
-// Scroll to Top Button Functionality
+// **Scroll to Top Button Functionality**
 const scrollToTop = document.getElementById('scroll-to-top');
+
+// Show/hide scroll-to-top button based on scroll position
 window.addEventListener('scroll', () => {
     scrollToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
+
+// Smooth scroll to the top when button is clicked
 scrollToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Simulate View Count Increment with localStorage
-let viewCount = localStorage.getItem('viewCount') || 0; // Get value or initialize to 0
-viewCount = parseInt(viewCount) + 1; // Increment by 1
-localStorage.setItem('viewCount', viewCount); // Save updated view count
+// Get view count from localStorage or initialize to 0 if not present
+let viewCount = parseInt(localStorage.getItem('viewCount') || '0');
+
+// Check if the user has already visited the page
+const hasVisited = localStorage.getItem('hasVisited');
+
+// If the user hasn't visited before, increment the view count and set the 'hasVisited' flag
+if (!hasVisited) {
+    viewCount++; // Increment the view count
+    localStorage.setItem('viewCount', viewCount); // Save the updated view count to localStorage
+    localStorage.setItem('hasVisited', 'true'); // Set a flag indicating the user has visited
+}
+
+// Display the current view count
 document.getElementById("view-count").textContent = viewCount;
 
-
-// AOS Initialization
+// **AOS Initialization**
 AOS.init();
-
-
-
