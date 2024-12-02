@@ -76,15 +76,62 @@ body {
   margin: 120px auto;
   backdrop-filter: blur(10px); /* Soft blur effect on background */
 }
+/* Title Styling */
+.animated-title {
+  font-size: 2.5rem;
+  color: #333; /* Original title color */
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
 
-/* Profile Picture */
+.animated-title:hover {
+  color: #ff6f61; /* Color change on hover */
+}
+/* Paragraph Styling */
+.animated-paragraph {
+  font-size: 1.2rem;
+  color: #f3a7cd; /* Original text color */
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+/* View Count Styling */
+.view-count {
+  font-size: 1.2rem;
+  color: #ff6f61; /* Use a similar accent color */
+  margin-top: 20px;
+  font-family: 'Arial', sans-serif;
+}
+/* Clock Styling */
+#corner-clock {
+  font-size: 1.2rem;
+  color: #333; /* Original color */
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#corner-hours, #corner-minutes, #corner-seconds {
+  font-weight: bold;
+}
+
+#corner-ampm {
+  font-style: italic;
+  margin-left: 5px;
+}
+/* Profile Picture Styling */
 .profile-pic {
-  border-radius: 50%;
   width: 150px;
   height: 150px;
+  border-radius: 50%;
   object-fit: cover;
+  border: 4px solid #573d3b; /* Border color */
   margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 /* Social Icons */
