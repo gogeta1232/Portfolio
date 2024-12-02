@@ -108,22 +108,7 @@ body {
   margin-top: 20px;
   font-family: 'Arial', sans-serif;
 }
-/* Clock Styling */
-#corner-clock {
-  font-size: 1.2rem;
-  color: #333; /* Original color */
-  margin-top: 20px;
-  font-family: 'Roboto', sans-serif;
-}
 
-#corner-hours, #corner-minutes, #corner-seconds {
-  font-weight: bold;
-}
-
-#corner-ampm {
-  font-style: italic;
-  margin-left: 5px;
-}
 /* Profile Picture Styling */
 .profile-pic {
   width: 150px;
