@@ -361,40 +361,7 @@ body {
     gap: 15px;
   }
 }
-#corner-clock {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem; /* Adjust size */
-  padding: 8px 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 20px; /* Fixed position at the top */
-  right: 20px; /* Fixed position on the right */
-  z-index: 10;
-  color: transparent;
-  background: linear-gradient(45deg, #ff6a00, #ee0979); /* Gradient color */
-  -webkit-background-clip: text; /* Apply the gradient only to the text */
-  background-clip: text;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(189, 63, 63, 0.7); /* Glow effect */
-}
 
-/* Styling for the time */
-#corner-clock span {
-  font-weight: bold;
-}
-
-/* Spacing between time elements */
-#corner-hours, #corner-minutes, #corner-seconds {
-  margin: 0 5px;
-}
-
-/* AM/PM styling */
-#corner-ampm {
-  font-size: 1.5rem;
-  margin-left: 10px;
-  font-weight: 600;
-}
 /* Style for the Spotify Playlist container */
 .spotify-playlist {
   width: 100%;
@@ -446,5 +413,4 @@ body {
     font-size: 1.5rem; /* Slightly smaller title on small screens */
   }
 }
-
 
