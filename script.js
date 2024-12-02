@@ -58,6 +58,78 @@ if (!hasVisited) {
 
 // Display the current view count
 document.getElementById("view-count").textContent = viewCount;
+// Replace with your Discord User ID
+const userId = "1214142384544161793";
+
+// Lanyard API URL
+const apiUrl = `https://api.lanyard.rest/v1/users/${userId}`;
+
+// Function to update the Discord profile dynamically
+async function updateDiscordStatus() {
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (data.success) {
+            const discordData = data.data;
+
+            // Update Avatar
+            const avatarUrl = discordData.discord_user.avatar
+                ? `https://cdn.discordapp.com/avatars/${discordData.discord_user.id}/${discordData.discord_user.avatar}.png`
+                : "default-avatar.png";
+            document.getElementById("discord-avatar").src = avatarUrl;
+
+            // Update Username
+            document.getElementById("discord-username").textContent =
+                discordData.discord_user.username;
+
+            // Update Status
+            const statusBadge = document.getElementById("discord-status-badge");
+            statusBadge.textContent = discordData.discord_status;
+            statusBadge.className = `status-badge ${discordData.discord_status}`;
+
+            // Update Activities or Custom Status
+            document.getElementById("discord-status").textContent =
+                discordData.activities.length > 0
+                    ? discordData.activities[0].state || "No activity"
+                    : "No custom status";
+                    // Add Discord badges dynamically with icons
+if (discordData.discord_user.public_flags) {
+    const badgesContainer = document.getElementById("discord-badges");
+    badgesContainer.innerHTML = ""; // Clear existing badges
+  
+    const flags = discordData.discord_user.public_flags;
+  
+    const badgeIcons = {
+      1: { name: "Staff", icon: "path-to-icons/staff-icon.png" },
+      2: { name: "Partner", icon: "path-to-icons/partner-icon.png" },
+      64: { name: "HypeSquad Bravery", icon: "path-to-icons/bravery-icon.png" },
+      128: { name: "HypeSquad Brilliance", icon: "path-to-icons/brilliance-icon.png" },
+      256: { name: "HypeSquad Balance", icon: "https://shorturl.at/aNqA7" },
+      512: { name: "Early Supporter", icon: "path-to-icons/early-supporter-icon.png" },
+      16384: { name: "Verified Bot Developer", icon: "path-to-icons/verified-icon.png" },
+    };
+  
+    for (const [key, badge] of Object.entries(badgeIcons)) {
+      if (flags & key) {
+        const badgeElement = document.createElement("div");
+        badgeElement.className = `badge ${badge.name.toLowerCase().replace(" ", "-")}`;
+        badgeElement.innerHTML = `<img src="${badge.icon}" alt="${badge.name}" title="${badge.name}" />`; // Add icon
+        badgesContainer.appendChild(badgeElement);
+      }
+    }
+  }
+  
+        }
+    } catch (error) {
+        console.error("Failed to fetch Discord data:", error);
+    }
+}
+
+// Call the function every 15 seconds to keep it updated
+updateDiscordStatus();
+setInterval(updateDiscordStatus, 15000);
 
 // **AOS Initialization**
 AOS.init();
+
