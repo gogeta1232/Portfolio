@@ -29,6 +29,11 @@ body {
   z-index: -1;
   filter: brightness(0.7); /* To enhance visibility of text and elements */
 }
+#background-video {
+  background-image: url('fallback-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 /* Navigation Bar */
 .navbar {
