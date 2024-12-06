@@ -105,7 +105,7 @@ if (discordData.discord_user.public_flags) {
       2: { name: "Partner", icon: "path-to-icons/partner-icon.png" },
       64: { name: "HypeSquad Bravery", icon: "path-to-icons/bravery-icon.png" },
       128: { name: "HypeSquad Brilliance", icon: "path-to-icons/brilliance-icon.png" },
-      256: { name: "HypeSquad Balance", icon: "https://cdn.discordapp.com/attachments/1311323901367816213/1313172314480840704/balance.png?ex=675124c5&is=674fd345&hm=4b0cfa6d2a4066aa575dc349bc515dc4f1cbe8b56accfeb8f50d7d97690bfc4e&" },
+      256: { name: "HypeSquad Balance", icon: "https://raw.githubusercontent.com/gogeta1232/one/refs/heads/main/balance%20(1).png?token=GHSAT0AAAAAAC3F3TXK5KSUNBGOJQHC5JBMZ2SY6RA" },
       512: { name: "Early Supporter", icon: "path-to-icons/early-supporter-icon.png" },
       16384: { name: "Verified Bot Developer", icon: "path-to-icons/verified-icon.png" },
     };
