@@ -43,21 +43,24 @@ scrollToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Get view count from localStorage or initialize to 0 if not present
-let viewCount = parseInt(localStorage.getItem('viewCount') || '0');
+function manageViewCount() {
+    const viewCountKey = "viewCount";
+    const visitFlagKey = "hasVisited";
 
-// Check if the user has already visited the page
-const hasVisited = localStorage.getItem('hasVisited');
+    // Increment view count if user hasn't visited before
+    if (!localStorage.getItem(visitFlagKey)) {
+        const viewCount = parseInt(localStorage.getItem(viewCountKey) || '0') + 1;
+        localStorage.setItem(viewCountKey, viewCount); // Update view count in localStorage
+        localStorage.setItem(visitFlagKey, 'true');   // Mark as visited
+    }
 
-// If the user hasn't visited before, increment the view count and set the 'hasVisited' flag
-if (!hasVisited) {
-    viewCount++; // Increment the view count
-    localStorage.setItem('viewCount', viewCount); // Save the updated view count to localStorage
-    localStorage.setItem('hasVisited', 'true'); // Set a flag indicating the user has visited
+    // Display the current view count
+    document.getElementById("view-count").textContent = localStorage.getItem(viewCountKey) || '0';
 }
 
-// Display the current view count
-document.getElementById("view-count").textContent = viewCount;
+// Call the function to initialize the view count display
+manageViewCount();
+
 // Replace with your Discord User ID
 const userId = "1214142384544161793";
 
