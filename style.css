@@ -422,42 +422,43 @@ body {
 /* Discord Status Box */
 .discord-status {
   position: absolute;
-  top: 23%;
-  left: 92%;
+  top: 6%;
+  left: 82%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, rgba(54, 57, 63, 0.85), rgba(32, 34, 37, 0.85));
   color: white;
-  border-radius: 15px;
-  padding: 15px 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 128, 255, 0.25); /* Outer glow */
+  border-radius: 10px; /* Smaller radius for compactness */
+  padding: 10px 15px; /* Reduced padding */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 128, 255, 0.2); /* Adjusted shadow */
   z-index: 1000;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(10px); /* Reduced blur for simplicity */
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  max-width: 250px; /* Added max-width */
 }
 
 .discord-status:hover {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.05);
   background: linear-gradient(135deg, rgba(54, 57, 63, 1), rgba(32, 34, 37, 1)); /* Slightly brighter on hover */
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 128, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 128, 255, 0.3);
 }
 
 /* Discord Avatar */
 #discord-avatar {
-  width: 60px;
-  height: 60px;
+  width: 40px; /* Reduced size */
+  height: 40px;
   border-radius: 50%;
-  margin-right: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 255, 255, 0.3); /* Avatar glow */
-  border: 3px solid rgba(255, 255, 255, 0.35);
+  margin-right: 10px; /* Reduced margin */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), 0 0 8px rgba(255, 255, 255, 0.3); /* Avatar glow */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Reduced border size */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #discord-avatar:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 128, 255, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 128, 255, 0.3);
 }
 
 /* Discord Info */
@@ -465,101 +466,49 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Poppins", sans-serif;
-  line-height: 1.6;
+  line-height: 1.4; /* Reduced line height for compactness */
 }
 
 #discord-username {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px; /* Reduced font size */
   color: white;
-  text-shadow: 0 2px 5px rgba(0, 128, 255, 0.6); /* Brighter blue glow effect */
+  text-shadow: 0 1px 3px rgba(0, 128, 255, 0.5); /* Subtle blue glow effect */
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 #discord-username:hover {
   color: #00bfff; /* Light blue hover color */
-  text-shadow: 0 3px 8px rgba(0, 191, 255, 0.8);
+  text-shadow: 0 2px 6px rgba(0, 191, 255, 0.7);
 }
 
 #discord-status {
-  font-size: 14px;
+  font-size: 12px; /* Reduced font size */
   font-style: italic; /* Adds a subtle emphasis */
   color: #b9bbbe;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Subtle shadow */
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 #discord-status:hover {
   color: white; /* Slightly brighter status on hover */
-  text-shadow: 0 2px 5px rgba(0, 128, 255, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 128, 255, 0.3);
 }
 
 /* Status Badges */
 .status-badge {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 12px;
-  color: white;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Stronger shadow for readability */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.status-badge.online {
-  background: linear-gradient(135deg, #43b581, #2fa568);
-  box-shadow: 0 0 15px rgba(67, 181, 129, 0.4);
-}
-
-.status-badge.idle {
-  background: linear-gradient(135deg, #faa61a, #e99916);
-  box-shadow: 0 0 15px rgba(250, 166, 26, 0.4);
-}
-
-.status-badge.dnd {
-  background: linear-gradient(135deg, #f04747, #d93c3c);
-  box-shadow: 0 0 15px rgba(240, 71, 71, 0.4);
-}
-
-.status-badge.offline {
-  background: linear-gradient(135deg, #747f8d, #626a77);
-  box-shadow: 0 0 15px rgba(116, 127, 141, 0.4);
-}
-
-.status-badge:hover {
-  transform: scale(1.15);
-  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+  padding: 4px 10px; /* Reduced padding */
+  border-radius: 10px; /* Adjusted radius */
+  font-size: 0.75rem; /* Smaller font */
 }
 
 /* Discord Badges */
-.badges-container {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  gap: 10px;
-}
-
 .badges-container .badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 128, 255, 0.2);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  width: 32px; /* Reduced size */
+  height: 32px;
 }
 
 .badges-container .badge img {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
-}
-
-.badges-container .badge:hover {
-  transform: scale(1.15);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 128, 255, 0.4);
+  width: 18px; /* Adjusted size */
+  height: 18px;
 }
