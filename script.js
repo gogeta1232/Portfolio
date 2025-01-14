@@ -1,137 +1,140 @@
-// **Mute/Unmute Button Functionality**
 const video = document.getElementById('background-video');
 const muteBtn = document.getElementById('mute-btn');
 
-// Toggle mute state and button icon
 muteBtn.addEventListener('click', () => {
-    const isMuted = video.muted;
-    video.muted = !isMuted;
-    muteBtn.innerHTML = isMuted ? '<i class="fas fa-volume-up"></i>' : '<i class="fas fa-volume-mute"></i>';
+    video.muted = !video.muted;
+    muteBtn.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
 });
 
-// **Clock Update Function**
 function updateClock() {
     const clockElement = document.getElementById("corner-clock");
+    if (!clockElement) return;
+
     const now = new Date();
-    let hours = now.getHours();
+    const hours = (now.getHours() % 12) || 12; 
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12 || 12; // Convert to 12-hour format
+    const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
 
-    // Update the clock element with formatted time
     clockElement.innerHTML = `
-        <span id="corner-hours">${hours}</span>:<span id="corner-minutes">${minutes}</span>:<span id="corner-seconds">${seconds}</span> 
+        <span id="corner-hours">${hours}</span>:<span id="corner-minutes">${minutes}</span>:<span id="corner-seconds">${seconds}</span>
         <span id="corner-ampm">${ampm}</span>
     `;
 }
 
-// Initialize clock immediately and update it every second
 updateClock();
 setInterval(updateClock, 1000);
 
-// **Scroll to Top Button Functionality**
 const scrollToTop = document.getElementById('scroll-to-top');
 
-// Show/hide scroll-to-top button based on scroll position
 window.addEventListener('scroll', () => {
-    scrollToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    if (scrollToTop) {
+        scrollToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    }
 });
 
-// Smooth scroll to the top when button is clicked
-scrollToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+scrollToTop?.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 function manageViewCount() {
-    const viewCountKey = "viewCount";
-    const visitFlagKey = "hasVisited";
+    const VIEW_COUNT_KEY = 'viewCount';
+    const VISIT_FLAG_KEY = 'hasVisited';
+    const viewCountElement = document.getElementById('view-count');
 
-    // Increment view count if user hasn't visited before
-    if (!localStorage.getItem(visitFlagKey)) {
-        const viewCount = parseInt(localStorage.getItem(viewCountKey) || '0') + 1;
-        localStorage.setItem(viewCountKey, viewCount); // Update view count in localStorage
-        localStorage.setItem(visitFlagKey, 'true');   // Mark as visited
+    if (!viewCountElement) return;
+
+    if (!localStorage.getItem(VISIT_FLAG_KEY)) {
+        const currentCount = parseInt(localStorage.getItem(VIEW_COUNT_KEY) || '0');
+        localStorage.setItem(VIEW_COUNT_KEY, (currentCount + 1).toString());
+        localStorage.setItem(VISIT_FLAG_KEY, 'true');
     }
 
-    // Display the current view count
-    document.getElementById("view-count").textContent = localStorage.getItem(viewCountKey) || '0';
+    viewCountElement.textContent = localStorage.getItem(VIEW_COUNT_KEY) || '0';
 }
 
-// Call the function to initialize the view count display
 manageViewCount();
 
-// Replace with your Discord User ID
-const userId = "1214142384544161793";
+const DISCORD_USER_ID = '1214142384544161793';
+const LANYARD_API_URL = `https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`;
+const REFRESH_INTERVAL = 15000; 
 
-// Lanyard API URL
-const apiUrl = `https://api.lanyard.rest/v1/users/${userId}`;
+const DISCORD_BADGES = {
+    DISCORD_STAFF: { flag: 1, name: 'Staff', icon: 'path-to-icons/staff-icon.png' },
+    PARTNER: { flag: 2, name: 'Partner', icon: 'path-to-icons/partner-icon.png' },
+    HYPESQUAD_BRAVERY: { flag: 64, name: 'HypeSquad Bravery', icon: 'path-to-icons/bravery-icon.png' },
+    HYPESQUAD_BRILLIANCE: { flag: 128, name: 'HypeSquad Brilliance', icon: 'path-to-icons/brilliance-icon.png' },
+    HYPESQUAD_BALANCE: { flag: 256, name: 'HypeSquad Balance', icon: 'balance (1).png' },
+    EARLY_SUPPORTER: { flag: 512, name: 'Early Supporter', icon: 'path-to-icons/early-supporter-icon.png' },
+    VERIFIED_BOT_DEVELOPER: { flag: 16384, name: 'Verified Bot Developer', icon: 'path-to-icons/verified-icon.png' }
+};
 
-// Function to update the Discord profile dynamically
 async function updateDiscordStatus() {
     try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+        const response = await fetch(LANYARD_API_URL);
+        if (!response.ok) throw new Error('Network response was not ok');
+        
+        const { success, data } = await response.json();
+        if (!success) throw new Error('API response indicated failure');
 
-        if (data.success) {
-            const discordData = data.data;
-
-            // Update Avatar
-            const avatarUrl = discordData.discord_user.avatar
-                ? `https://cdn.discordapp.com/avatars/${discordData.discord_user.id}/${discordData.discord_user.avatar}.png`
-                : "default-avatar.png";
-            document.getElementById("discord-avatar").src = avatarUrl;
-
-            // Update Username
-            document.getElementById("discord-username").textContent =
-                discordData.discord_user.username;
-
-            // Update Status
-            const statusBadge = document.getElementById("discord-status-badge");
-            statusBadge.textContent = discordData.discord_status;
-            statusBadge.className = `status-badge ${discordData.discord_status}`;
-
-            // Update Activities or Custom Status
-            document.getElementById("discord-status").textContent =
-                discordData.activities.length > 0
-                    ? discordData.activities[0].state || "No activity"
-                    : "No custom status";
-                    // Add Discord badges dynamically with icons
-if (discordData.discord_user.public_flags) {
-    const badgesContainer = document.getElementById("discord-badges");
-    badgesContainer.innerHTML = ""; // Clear existing badges
-  
-    const flags = discordData.discord_user.public_flags;
-  
-    const badgeIcons = {
-      1: { name: "Staff", icon: "path-to-icons/staff-icon.png" },
-      2: { name: "Partner", icon: "path-to-icons/partner-icon.png" },
-      64: { name: "HypeSquad Bravery", icon: "path-to-icons/bravery-icon.png" },
-      128: { name: "HypeSquad Brilliance", icon: "path-to-icons/brilliance-icon.png" },
-      256: { name: "HypeSquad Balance", icon: "balance (1).png" },
-      512: { name: "Early Supporter", icon: "path-to-icons/early-supporter-icon.png" },
-      16384: { name: "Verified Bot Developer", icon: "path-to-icons/verified-icon.png" },
-    };
-  
-    for (const [key, badge] of Object.entries(badgeIcons)) {
-      if (flags & key) {
-        const badgeElement = document.createElement("div");
-        badgeElement.className = `badge ${badge.name.toLowerCase().replace(" ", "-")}`;
-        badgeElement.innerHTML = `<img src="${badge.icon}" alt="${badge.name}" title="${badge.name}" />`; // Add icon
-        badgesContainer.appendChild(badgeElement);
-      }
-    }
-  }
-  
-        }
+        updateDiscordUI(data);
     } catch (error) {
-        console.error("Failed to fetch Discord data:", error);
+        console.error('Failed to fetch Discord data:', error);
     }
 }
 
-// Call the function every 15 seconds to keep it updated
-updateDiscordStatus();
-setInterval(updateDiscordStatus, 15000);
+function updateDiscordUI(discordData) {
+    const avatarElement = document.getElementById('discord-avatar');
+    if (avatarElement) {
+        const avatarUrl = discordData.discord_user.avatar
+            ? `https://cdn.discordapp.com/avatars/${discordData.discord_user.id}/${discordData.discord_user.avatar}.png`
+            : 'default-avatar.png';
+        avatarElement.src = avatarUrl;
+    }
 
-// **AOS Initialization**
-AOS.init();
+    const usernameElement = document.getElementById('discord-username');
+    if (usernameElement) {
+        usernameElement.textContent = discordData.discord_user.username;
+    }
+
+    const statusBadgeElement = document.getElementById('discord-status-badge');
+    if (statusBadgeElement) {
+        statusBadgeElement.textContent = discordData.discord_status;
+        statusBadgeElement.className = `status-badge ${discordData.discord_status}`;
+    }
+
+    const statusElement = document.getElementById('discord-status');
+    if (statusElement) {
+        statusElement.textContent = discordData.activities.length > 0
+            ? discordData.activities[0].state || 'No activity'
+            : 'No custom status';
+    }
+
+    updateDiscordBadges(discordData.discord_user.public_flags);
+}
+
+function updateDiscordBadges(flags) {
+    const badgesContainer = document.getElementById('discord-badges');
+    if (!badgesContainer || !flags) return;
+
+    badgesContainer.innerHTML = '';
+
+    Object.entries(DISCORD_BADGES).forEach(([_, badge]) => {
+        if (flags & badge.flag) {
+            const badgeElement = document.createElement('div');
+            badgeElement.className = `badge ${badge.name.toLowerCase().replace(/\s+/g, '-')}`;
+            badgeElement.innerHTML = `<img src="${badge.icon}" alt="${badge.name}" title="${badge.name}">`;
+            badgesContainer.appendChild(badgeElement);
+        }
+    });
+}
+
+updateDiscordStatus();
+setInterval(updateDiscordStatus, REFRESH_INTERVAL);
+
+if (typeof AOS !== 'undefined') {
+    AOS.init();
+}
