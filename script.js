@@ -43,19 +43,33 @@ scrollToTop?.addEventListener('click', () => {
 function manageViewCount() {
     const VIEW_COUNT_KEY = 'viewCount';
     const VISIT_FLAG_KEY = 'hasVisited';
+    const SESSION_FLAG_KEY = 'sessionActive';
     const viewCountElement = document.getElementById('view-count');
 
     if (!viewCountElement) return;
 
-    if (!localStorage.getItem(VISIT_FLAG_KEY)) {
-        const currentCount = parseInt(localStorage.getItem(VIEW_COUNT_KEY) || '0');
-        localStorage.setItem(VIEW_COUNT_KEY, (currentCount + 1).toString());
-        localStorage.setItem(VISIT_FLAG_KEY, 'true');
+    // Check if this is a new session
+    const isNewSession = !sessionStorage.getItem(SESSION_FLAG_KEY);
+    
+    // Initialize storage if needed
+    if (!localStorage.getItem(VIEW_COUNT_KEY)) {
+        localStorage.setItem(VIEW_COUNT_KEY, '0');
     }
 
-    viewCountElement.textContent = localStorage.getItem(VIEW_COUNT_KEY) || '0';
+    // Only increment count for new sessions
+    if (isNewSession) {
+        const currentCount = parseInt(localStorage.getItem(VIEW_COUNT_KEY));
+        localStorage.setItem(VIEW_COUNT_KEY, (currentCount + 1).toString());
+        sessionStorage.setItem(SESSION_FLAG_KEY, 'true');
+    }
+
+    // Format the view count with commas for better readability
+    const formattedCount = parseInt(localStorage.getItem(VIEW_COUNT_KEY))
+        .toLocaleString('en-US');
+    viewCountElement.textContent = formattedCount;
 }
 
+// Run on page load
 manageViewCount();
 
 const DISCORD_USER_ID = '1214142384544161793';
