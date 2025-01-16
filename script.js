@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const video = document.getElementById('background-video');
 const muteBtn = document.getElementById('mute-btn');
 
@@ -153,7 +152,6 @@ setInterval(updateDiscordStatus, REFRESH_INTERVAL);
 if (typeof AOS !== 'undefined') {
     AOS.init();
 }
-=======
 const video = document.getElementById('background-video');
 const muteBtn = document.getElementById('mute-btn');
 
@@ -308,4 +306,3 @@ setInterval(updateDiscordStatus, REFRESH_INTERVAL);
 if (typeof AOS !== 'undefined') {
     AOS.init();
 }
->>>>>>> 6b0f498a3b783d9398cbeb6ba8af03f05a679084
