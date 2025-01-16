@@ -81,7 +81,7 @@ const DISCORD_BADGES = {
     PARTNER: { flag: 2, name: 'Partner', icon: 'path-to-icons/partner-icon.png' },
     HYPESQUAD_BRAVERY: { flag: 64, name: 'HypeSquad Bravery', icon: 'path-to-icons/bravery-icon.png' },
     HYPESQUAD_BRILLIANCE: { flag: 128, name: 'HypeSquad Brilliance', icon: 'path-to-icons/brilliance-icon.png' },
-    HYPESQUAD_BALANCE: { flag: 256, name: 'HypeSquad Balance', icon: 'balance (1).png' },
+    HYPESQUAD_BALANCE: { flag: 256, name: 'HypeSquad Balance', icon: 'https://img.icons8.com/?size=100&id=B1RNuFJol4fr&format=png&color=000000' },
     EARLY_SUPPORTER: { flag: 512, name: 'Early Supporter', icon: 'path-to-icons/early-supporter-icon.png' },
     VERIFIED_BOT_DEVELOPER: { flag: 16384, name: 'Verified Bot Developer', icon: 'path-to-icons/verified-icon.png' }
 };
