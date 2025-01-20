@@ -41,18 +41,18 @@ body {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(280px, 90%, 1200px); /* Better width control */
+  width: clamp(280px, 90%, 1200px); 
   background: rgba(18, 18, 18, 0.92);
-  padding: clamp(15px, 2.5vw, 22px) clamp(20px, 3vw, 38px); /* Responsive padding */
+  padding: clamp(15px, 2.5vw, 22px) clamp(20px, 3vw, 38px); 
   z-index: 10;
   display: flex;
   justify-content: center;
-  border-radius: clamp(20px, 3vw, 30px); /* Responsive border-radius */
+  border-radius: clamp(20px, 3vw, 30px);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
               0 4px 20px rgba(255, 255, 255, 0.1),
               inset 0 0 40px rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px); /* Safari support */
+  -webkit-backdrop-filter: blur(20px); 
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -67,27 +67,27 @@ body {
 
 .navbar ul {
   display: flex;
-  gap: clamp(20px, 3vw, 45px); /* Responsive gap */
+  gap: clamp(20px, 3vw, 45px); 
   list-style: none;
   padding: 0 clamp(15px, 2vw, 25px);
   align-items: center;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  flex-wrap: wrap; 
   justify-content: center;
 }
 
 .navbar a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
-  padding: clamp(12px, 1.5vw, 16px) clamp(20px, 2.5vw, 32px); /* Responsive padding */
+  padding: clamp(12px, 1.5vw, 16px) clamp(20px, 2.5vw, 32px); 
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 600;
   border-radius: clamp(14px, 2vw, 18px);
   position: relative;
   background: transparent;
   letter-spacing: 0.8px;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* Responsive font size */
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem); 
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  white-space: nowrap; /* Prevent text wrapping within links */
+  white-space: nowrap; 
 }
 
 .navbar a::after {
@@ -127,7 +127,6 @@ body {
   box-shadow: 0 0 15px rgba(255, 111, 97, 0.7);
 }
 
-/* Added mobile optimization */
 @media (max-width: 768px) {
   .navbar {
     top: 10px;
@@ -145,11 +144,10 @@ body {
   }
   
   .navbar:hover {
-    transform: translateX(-50%) translateY(-2px); /* Reduced hover effect on mobile */
+    transform: translateX(-50%) translateY(-2px); 
   }
 }
 
-/* Added smooth scrollbar for overflow scenarios */
 @media (max-width: 480px) {
   .navbar ul {
     max-width: 100%;
@@ -174,7 +172,6 @@ body {
   100% { background-position: 200% 0%; }
 }
 
-/* Enhanced container styling */
 .content {
   margin: clamp(60px, 10vh, 120px) auto;
   text-align: center;
@@ -202,7 +199,6 @@ body {
     inset 0 0 35px rgba(255, 111, 97, 0.2);
 }
 
-/* Enhanced title animation and styling */
 .animated-title {
   font-size: clamp(2rem, 5vw, 3.2rem);
   background: linear-gradient(
@@ -236,7 +232,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Enhanced paragraph styling */
 .animated-paragraph {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   color: #f3a7cd;
@@ -261,7 +256,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Enhanced view count styling */
 .view-count {
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   color: #ff6f61;
@@ -292,7 +286,6 @@ body {
   );
 }
 
-/* Enhanced profile picture styling */
 .profile-pic {
   width: clamp(140px, 30vw, 180px);
   height: clamp(140px, 30vw, 180px);
@@ -315,7 +308,6 @@ body {
     0 0 50px rgba(243, 167, 205, 0.2);
 }
 
-/* Enhanced social icons styling */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -387,7 +379,6 @@ body {
   100% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(243, 167, 205, 0); }
 }
 
-/* Media Queries for better responsiveness */
 @media (max-width: 768px) {
   .content {
     margin-top: 60px;
@@ -733,7 +724,6 @@ body {
   background: linear-gradient(135deg, rgba(255, 165, 0, 0.3), rgba(255, 165, 0, 0.1));
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .footer {
     padding: 1.5rem 1rem;
