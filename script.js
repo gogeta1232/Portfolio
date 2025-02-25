@@ -73,7 +73,7 @@ function manageViewCount() {
 // Run on page load
 manageViewCount();
 
-const DISCORD_USER_ID = '1214142384544161793';
+const DISCORD_USER_ID = '1061972477082873936';
 const LANYARD_API_URL = `https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`;
 const REFRESH_INTERVAL = 15000; 
 
